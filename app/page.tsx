@@ -1,65 +1,80 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 
 export default function Home() {
+  const [salePrice, setSalePrice] = useState("");
+  const [costPrice, setCostPrice] = useState("");
+  const [shippingFee, setShippingFee] = useState("");
+
+  const sale = Number(salePrice) || 0;
+  const cost = Number(costPrice) || 0;
+  const shipping = Number(shippingFee) || 0;
+
+  const profit = sale - cost - shipping;
+  const profitRate = sale > 0 ? (profit / sale) * 100 : 0;
+
+  const reset = () => {
+    setSalePrice("");
+    setCostPrice("");
+    setShippingFee("");
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-gray-100 px-4 py-10 text-gray-900">
+      <div className="mx-auto max-w-xl rounded-2xl bg-white p-6 shadow">
+        <h1 className="mb-2 text-2xl font-bold">
+          送料込み利益計算ツール
+        </h1>
+        <p className="mb-6 text-sm text-gray-600">
+          売値・原価・送料から利益を計算します。
+        </p>
+
+        <div className="space-y-4">
+          <input
+            type="number"
+            value={salePrice}
+            onChange={(e) => setSalePrice(e.target.value)}
+            placeholder="売値（例：5000）"
+            className="w-full rounded border p-3"
+          />
+
+          <input
+            type="number"
+            value={costPrice}
+            onChange={(e) => setCostPrice(e.target.value)}
+            placeholder="仕入れ値（例：2000）"
+            className="w-full rounded border p-3"
+          />
+
+          <input
+            type="number"
+            value={shippingFee}
+            onChange={(e) => setShippingFee(e.target.value)}
+            placeholder="送料（例：750）"
+            className="w-full rounded border p-3"
+          />
+        </div>
+
+        <div className="mt-6 rounded-xl bg-gray-50 p-4">
+          <p className="text-sm text-gray-600">利益額</p>
+          <p className={profit < 0 ? "text-3xl font-bold text-red-600" : "text-3xl font-bold"}>
+            {profit.toLocaleString()}円
+          </p>
+
+          <p className="mt-4 text-sm text-gray-600">利益率</p>
+          <p className={profitRate < 0 ? "text-2xl font-bold text-red-600" : "text-2xl font-bold"}>
+            {profitRate.toFixed(1)}%
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        <button
+          onClick={reset}
+          className="mt-6 w-full rounded bg-black py-3 font-bold text-white"
+        >
+          リセット
+        </button>
+      </div>
+    </main>
   );
 }
