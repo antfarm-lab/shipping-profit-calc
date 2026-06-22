@@ -97,6 +97,26 @@ export default function Home() {
           </ul>
         </div>
       </div>
+      <section className="mt-10 bg-white rounded-xl p-6">
+  <h2 className="text-xl font-bold mb-4">
+    送料込みで利益計算することが重要な理由
+  </h2>
+
+  <p className="mb-3">
+    フリマ販売では販売価格だけ見ても正しい利益はわかりません。
+    送料まで含めて計算しないと赤字になることがあります。
+  </p>
+
+  <p className="mb-3">
+    特に大型商品では送料負担が大きく、
+    想定より利益が少なくなるケースがあります。
+  </p>
+
+  <p>
+    この送料込み利益計算ツールでは送料や手数料を含めた
+    正確な利益を確認できます。
+  </p>
+</section>
       <section className="mt-10 rounded-xl border bg-white p-5">
   <h2 className="mb-3 text-lg font-bold">ほかの便利ツール</h2>
   <div className="grid gap-2 text-sm">
