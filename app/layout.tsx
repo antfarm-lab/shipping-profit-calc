@@ -13,9 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "送料込み利益計算ツール｜送料を含めた最終利益を自動計算",
-  description:
-    "販売価格・仕入れ価格・送料を入力するだけで最終利益を自動計算できる無料ツール。メルカリや物販の利益確認に便利です。",
+  title: "送料込み利益計算ツール【無料】利益を自動計算",
+description:
+  "販売価格・送料・仕入れ価格・手数料から最終利益を無料で自動計算。メルカリやラクマ販売、副業物販の利益確認に便利です。",
+keywords: [
+  "送料込み利益計算",
+  "メルカリ利益計算",
+  "ラクマ利益計算",
+  "送料込み",
+  "物販",
+  "副業",
+],
   verification: {
     google: "miCxwdbgRhGe66W37cjiBB0MFNO1tB2WJxh9Dm_zTjc",
   },
