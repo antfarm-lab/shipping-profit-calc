@@ -76,6 +76,57 @@ export default function Home() {
         </button>
                
       </div>
+      <section className="mt-12 text-left max-w-3xl mx-auto space-y-6">
+
+  <div>
+    <h2 className="text-2xl font-bold mb-3">
+      送料込み販売で利益はいくら残る？
+    </h2>
+    <p>
+      フリマアプリでは送料込みで販売することが多いため、
+      販売価格だけを見ても本当の利益は分かりません。
+      送料や販売手数料を差し引いたあとに、
+      実際にいくら利益が残るか確認することが重要です。
+    </p>
+  </div>
+
+  <div>
+    <h2 className="text-2xl font-bold mb-3">
+      メルカリで送料込み1000円販売は利益が出る？
+    </h2>
+    <p>
+      1000円で販売しても、送料や手数料を引くと利益がかなり少なくなる場合があります。
+      小さな商品でも発送方法によって利益が変わるため、
+      出品前に送料込みの利益を計算しておくと安心です。
+    </p>
+  </div>
+
+  <div>
+    <h2 className="text-2xl font-bold mb-3">
+      送料負担を間違えると赤字になることもある
+    </h2>
+    <p>
+      送料込み価格で出品すると、購入者には分かりやすい反面、
+      出品者側の利益が減りやすくなります。
+      送料・手数料・仕入れ値をまとめて確認して、
+      赤字販売を避けることが大切です。
+    </p>
+  </div>
+
+  <div>
+    <h2 className="text-2xl font-bold mb-3">
+      よくある質問
+    </h2>
+    <p>
+      Q. 送料込み価格の利益計算に使えますか？<br />
+      A. はい。販売価格から送料や手数料を引いた利益確認に使えます。<br /><br />
+
+      Q. メルカリやラクマにも使えますか？<br />
+      A. はい。フリマアプリ全般の送料込み利益計算に使えます。
+    </p>
+  </div>
+
+</section>
       <section className="mt-10 bg-white rounded-xl p-6">
   <h2 className="text-xl font-bold mb-4">
     送料込みで利益計算することが重要な理由
